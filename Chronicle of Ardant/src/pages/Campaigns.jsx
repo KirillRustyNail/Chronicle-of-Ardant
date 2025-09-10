@@ -2,7 +2,9 @@ import React from 'react';
 import { CampaignSection } from '../components/CampaignSection.jsx';
 import { campaignsData } from '../data/campaignsData';
 
+
 export const Campaigns = () => {
+  
   return (
     <>
       <header>
