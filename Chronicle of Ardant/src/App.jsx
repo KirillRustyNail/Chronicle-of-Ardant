@@ -9,7 +9,7 @@ import { Campaigns } from "./pages/Campaigns";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Chronicle-of-Ardant">
       <div className="App">
         <Navbar />
         <Routes>
