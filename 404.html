@@ -4,22 +4,22 @@
     <meta charset="utf-8">
     <title>Chronicle of Ardant</title>
     <script>
-      const base = "/Chronicle-of-Ardant";
+      const base = "/Chronicle-of-Ardant"; // ← как в имени репозитория
 
       const fullPath = window.location.pathname;
 
+      // Нормализуем для сравнения
       const normalizedBase = base.toLowerCase();
       const normalizedPath = fullPath.toLowerCase();
 
       let targetPath = "/";
 
       if (normalizedPath.startsWith(normalizedBase)) {
-        targetPath = fullPath.substring(base.length) || "/";
+        const cutPosition = normalizedBase.length;
+        targetPath = fullPath.substring(cutPosition) || "/";
       }
 
       const redirectUrl = `${base}/index.html#${targetPath}`;
-
-      // Перенаправляем
       window.location.replace(redirectUrl);
     </script>
   </head>
