@@ -4,13 +4,22 @@
     <meta charset="utf-8">
     <title>Chronicle of Ardant</title>
     <script>
-      const base = "/Chronicle-of-ardant";
-      const path = window.location.pathname;
+      const base = "/Chronicle-of-Ardant";
 
-      const targetPath = path.replace(base, "") || "/";
+      const fullPath = window.location.pathname;
+
+      const normalizedBase = base.toLowerCase();
+      const normalizedPath = fullPath.toLowerCase();
+
+      let targetPath = "/";
+
+      if (normalizedPath.startsWith(normalizedBase)) {
+        targetPath = fullPath.substring(base.length) || "/";
+      }
 
       const redirectUrl = `${base}/index.html#${targetPath}`;
 
+      // Перенаправляем
       window.location.replace(redirectUrl);
     </script>
   </head>
