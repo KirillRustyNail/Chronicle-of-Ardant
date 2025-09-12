@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <title>Chronicle of Ardant</title>
     <script>
-      const base = "/Chronicle-of-Ardant";
+      const base = "/Chronicle-of-ardant";
       const path = window.location.pathname;
 
-      if (path.startsWith(base)) {
-        window.location.replace(base + "/index.html");
-      } else {
-        window.location.replace(base + "/");
-      }
+      const targetPath = path.replace(base, "") || "/";
+
+      const redirectUrl = `${base}/index.html#${targetPath}`;
+
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body>
-    <p>Redirecting to homepage...</p>
+    <p>Redirecting...</p>
   </body>
 </html>
