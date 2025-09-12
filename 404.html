@@ -2,28 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Chronicle of Ardant</title>
-    <script>
-      const base = "/Chronicle-of-Ardant"; // ← как в имени репозитория
+    <script type="text/javascript">
+      // База
+      const base = "/Chronicle-of-Ardant";
 
-      const fullPath = window.location.pathname;
+      const redirectPath = location.pathname.replace(base, "") + location.search + location.hash;
 
-      // Нормализуем для сравнения
-      const normalizedBase = base.toLowerCase();
-      const normalizedPath = fullPath.toLowerCase();
-
-      let targetPath = "/";
-
-      if (normalizedPath.startsWith(normalizedBase)) {
-        const cutPosition = normalizedBase.length;
-        targetPath = fullPath.substring(cutPosition) || "/";
-      }
-
-      const redirectUrl = `${base}/index.html#${targetPath}`;
-      window.location.replace(redirectUrl);
+      location.replace(base + "/index.html?redirect=" + encodeURIComponent(redirectPath));
     </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>Redirecting…</p>
   </body>
 </html>
